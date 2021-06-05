@@ -18,9 +18,9 @@ app.set("view engine","ejs");
 
 app.use(bodyParser.urlencoded({extended:true}))
 
-console.log(process.env.DBURL)
 
-mongoose.connect("mongodb://localhost/miniproject",{
+
+mongoose.connect(process.env.DBURL,{
 	useNewUrlParser: true,
   	useUnifiedTopology: true
 })

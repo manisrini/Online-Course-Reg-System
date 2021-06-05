@@ -1,0 +1,63 @@
+<%- include("../partials/header") %>
+
+<style>
+	.column{
+		
+		
+		margin-bottom : 15px;
+		float : left;
+		
+	}
+	.card{
+		margin: 40px;
+
+	}
+	
+</style>
+
+<h1 class="text-center">Welcome , "<%= currentUser.name %>"</h1>
+
+<h3 class="text-center">Keep learning, doing great</h3>
+
+	<% if(mycourses.courses.length == 0 ){ %>
+		  <h3 class="text-center mt-5">
+			You haven't taken a course yet :(	  
+		  </h3>
+		<form action="/courses" method="GET">
+			 <button class="btn btn-lg btn-primary mx-auto d-block">
+				Search courses	 
+			</button>	
+		</form>
+		
+	<% } %>
+	
+	<div class="container">
+		<div class="row">
+			<% for(var i=0 ; i<mycourses.courses.length ; i++){ %>
+			<div class="column">
+				
+			
+			
+				<div class="card float-left" style="width: 18rem;">
+ 				 <img class="card-img-top" style="width:100%;height:200px;"
+					  src="<%= mycourses.courses[i].image%>" 											 alt="Card image cap">
+ 					<div class="card-body">
+  				  	 <h5 class="card-title"><%= mycourses.courses[i].name%></h5>
+  					  
+					<form action="/<%= mycourses.courses[i]._id%>/modules" method="POST">
+						<button class="btn btn-primary">
+							Continue
+						</button>
+					</form>	
+    				
+				  </div>
+				</div>
+				
+			<% } %>
+			</div>
+			
+		</div>
+		
+		
+	</div>
+	

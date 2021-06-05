@@ -1,0 +1,78 @@
+<%- include("../partials/header") %>
+
+<%for(var i=0 ; i<foundCourse.assignment.length ; i++){%>
+<% if(i == quesnum){%>
+<div class="text-center mt-5" style="font-size : 30px;">
+	
+	
+		<p><%= foundCourse.assignment[i].question %></p>
+	<div id="answers">
+		<input type="radio" id="op1" name="answer" value="<%=foundCourse.assignment[i].op1 %>">
+ 	 <label for="op1"><%=foundCourse.assignment[i].op1 %></label><br>
+	<input type="radio" id="op2" name="answer" value="<%=foundCourse.assignment[i].op2 %>">
+ 	 <label for="op2"><%=foundCourse.assignment[i].op2 %></label><br>
+	<input type="radio" id="op3" name="answer" value="<%=foundCourse.assignment[i].op3%>">
+ 	 <label for="op3"><%=foundCourse.assignment[i].op3 %></label><br>
+	<input type="radio" id="op4" name="answer" value="<%=foundCourse.assignment[i].op4 %>">
+	 <label for="op4"><%=foundCourse.assignment[i].op4 %></label><br>	
+	</div>
+ 	 
+	
+	
+	<button id="btn" onclick="validateAns()" class="btn btn-md btn-success">
+		Submit	
+	</button>
+	
+	
+	<input type="hidden" id="crctans" value="<%=foundCourse.assignment[i].ans %>">
+	<input type="hidden" id="qno" value="<%=quesnum %>">
+	<br>
+	<a href="/">Go Back</a>
+</div>
+<%} %> 
+
+	
+<% }%>
+
+<script>
+function validateAns()
+{
+	var answers = document.getElementById("answers");
+	if(document.getElementById("op1").checked){
+		var chosen_ans = document.getElementById("op1").value;
+	}else if(document.getElementById("op2").checked){
+		var chosen_ans = document.getElementById("op2").value;
+	}else if(document.getElementById("op3").checked){
+		var chosen_ans = document.getElementById("op3").value;
+	}else if(document.getElementById("op4").checked){
+		var chosen_ans = document.getElementById("op4").value;
+	}
+	
+	var crct_ans = document.getElementById("crctans").value;
+	
+	if(crct_ans == chosen_ans ){
+		var qno = document.getElementById("qno").value;
+		document.getElementById("btn").style.display = "none";
+		var p = document.createElement("h3");
+		p.style.textAlign = "center";
+		p.style.color = "green";
+		
+		p.innerHTML="YOUR ANSWER IS CORRECT";
+		document.body.appendChild(p);
+		
+		
+	}else{
+		document.getElementById("btn").style.display = "none";
+		var p = document.createElement("h3");
+		p.style.textAlign = "center";
+		p.style.color = "red";
+		p.innerHTML="YOUR ANSWER IS WRONG";
+		
+		document.body.appendChild(p);
+		
+	}
+
+		
+		
+}	
+</script>

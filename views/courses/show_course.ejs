@@ -1,0 +1,24 @@
+<%- include("../partials/header.ejs") %> 
+
+
+
+<div class="card-group w-50 mx-auto mt-5">
+  <div class="card">
+    <img class="card-img-top" src="<%= foundCourse.image%>" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title"><%=foundCourse.name %></h5>
+      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+    </div>
+   	
+	<form  action="/<%=foundCourse._id%>/orders" method="POST">
+		<button class="btn btn-lg btn-success ">
+			Click to pay
+		</button>
+	 </form>	
+	 <form style="display: inline-block;padding-top : 7px;" action="/<%=foundCourse._id%>/collab" method="POST">
+		 <button class="btn btn-lg btn-success ">
+			 Try Collab
+		 </button>
+	  </form> 
+  </div>
+

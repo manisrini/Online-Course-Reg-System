@@ -1,0 +1,221 @@
+<%- include("../partials/header") %>
+
+<% for(var i=0 ; i<foundCourse.assignment.length ; i++){%>
+<div class="text-center pt-5" style="font-size : 30px;">
+	<p><%=i+1%>)<%= foundCourse.assignment[i].question %></p>
+	<div id="q<%=i%>answers">
+		
+	<input type="radio" id="q<%=i %>op1" name="answer" value="<%=foundCourse.assignment[i].op1 %>">
+ 	 <label for="q<%=i %>op1"><%=foundCourse.assignment[i].op1 %></label><br>
+	<input type="radio" id="q<%=i %>op2" name="answer" value="<%=foundCourse.assignment[i].op2 %>">
+ 	 <label for="q<%=i %>op2"><%=foundCourse.assignment[i].op2 %></label><br>
+	<input type="radio" id="q<%=i %>op3" name="answer" value="<%=foundCourse.assignment[i].op3%>">
+ 	 <label for="q<%=i %>op3"><%=foundCourse.assignment[i].op3 %></label><br>
+	<input type="radio" id="q<%=i %>op4" name="answer" value="<%=foundCourse.assignment[i].op4 %>">
+	 <label for="q<%=i %>op4"><%=foundCourse.assignment[i].op4 %></label><br>	
+		
+	<input type="hidden" id="q<%=i %>crctans" value="<%=foundCourse.assignment[i].ans %>">	
+	<input type="hidden" id="q<%=i %>qno" value="<%= i %>">
+	</div>
+	
+	<button id="q<%=i %>btn" onclick="validateAns<%= i %>()" class="btn btn-md btn-success">
+		Submit	
+	</button>
+	<p id="q<%=i %>response">
+		
+	</p>
+	
+	
+</div>
+
+
+<% } %>
+<form id="certificateform" action="/<%=foundCourse._id %>/certificate" method="POST">
+		
+</form>
+
+<script>
+	let count =0;	
+	
+function validateAns0()
+{
+		
+	var answers = document.getElementById("q0answers");
+	if(document.getElementById("q0op1").checked){
+		var chosen_ans = document.getElementById("q0op1").value;
+	}else if(document.getElementById("q0op2").checked){
+		var chosen_ans = document.getElementById("q0op2").value;
+	}else if(document.getElementById("q0op3").checked){
+		var chosen_ans = document.getElementById("q0op3").value;
+	}else if(document.getElementById("q0op4").checked){
+		var chosen_ans = document.getElementById("q0op4").value;
+	}
+	
+	var crct_ans = document.getElementById("q0crctans").value;
+	
+	document.getElementById("q0btn").style.display = "none";
+		var p = document.getElementById("q0response");
+		p.style.textAlign = "center";
+		
+		p.style.color = "blue"
+		p.innerHTML="Answered";
+		
+		
+
+	if(crct_ans == chosen_ans ){
+		count = count+1;
+		
+				
+	}
+}	
+
+function validateAns1()
+{
+		
+	var answers = document.getElementById("q1answers");
+	if(document.getElementById("q1op1").checked){
+		var chosen_ans = document.getElementById("q1op1").value;
+	}else if(document.getElementById("q1op2").checked){
+		var chosen_ans = document.getElementById("q1op2").value;
+	}else if(document.getElementById("q1op3").checked){
+		var chosen_ans = document.getElementById("q1op3").value;
+	}else if(document.getElementById("q1op4").checked){
+		var chosen_ans = document.getElementById("q1op4").value;
+	}
+	
+	var crct_ans = document.getElementById("q1crctans").value;
+	
+	document.getElementById("q1btn").style.display = "none";
+		var p = document.getElementById("q1response");
+		p.style.textAlign = "center";
+		
+		p.style.color = "blue"
+		p.innerHTML="Answered";
+		
+		
+
+	if(crct_ans == chosen_ans ){
+		count = count+1;
+		
+				
+	}
+}	
+function validateAns2()
+{
+		
+	var answers = document.getElementById("q2answers");
+	if(document.getElementById("q2op1").checked){
+		var chosen_ans = document.getElementById("q2op1").value;
+	}else if(document.getElementById("q2op2").checked){
+		var chosen_ans = document.getElementById("q2op2").value;
+	}else if(document.getElementById("q2op3").checked){
+		var chosen_ans = document.getElementById("q2op3").value;
+	}else if(document.getElementById("q2op4").checked){
+		var chosen_ans = document.getElementById("q2op4").value;
+	}
+	
+	var crct_ans = document.getElementById("q2crctans").value;
+	
+	document.getElementById("q2btn").style.display = "none";
+		var p = document.getElementById("q2response");
+		p.style.textAlign = "center";
+		
+		p.style.color = "blue"
+		p.innerHTML="Answered";
+		
+		
+
+	if(crct_ans == chosen_ans ){
+		count = count+1;
+		
+				
+	}
+}	
+function validateAns3()
+{
+		
+	var answers = document.getElementById("q3answers");
+	if(document.getElementById("q3op1").checked){
+		var chosen_ans = document.getElementById("q3op1").value;
+	}else if(document.getElementById("q3op2").checked){
+		var chosen_ans = document.getElementById("q3op2").value;
+	}else if(document.getElementById("q3op3").checked){
+		var chosen_ans = document.getElementById("q3op3").value;
+	}else if(document.getElementById("q3op4").checked){
+		var chosen_ans = document.getElementById("q3op4").value;
+	}
+	
+	var crct_ans = document.getElementById("q3crctans").value;
+	
+	document.getElementById("q3btn").style.display = "none";
+		var p = document.getElementById("q3response");
+		p.style.textAlign = "center";
+		
+		p.style.color = "blue"
+		p.innerHTML="Answered";
+		
+		
+
+	if(crct_ans == chosen_ans ){
+		count = count+1;
+		
+				
+	}
+}	
+function validateAns4()
+{
+		
+	var answers = document.getElementById("q4answers");
+	if(document.getElementById("q4op1").checked){
+		var chosen_ans = document.getElementById("q4op1").value;
+	}else if(document.getElementById("q4op2").checked){
+		var chosen_ans = document.getElementById("q4op2").value;
+	}else if(document.getElementById("q4op3").checked){
+		var chosen_ans = document.getElementById("q4op3").value;
+	}else if(document.getElementById("q4op4").checked){
+		var chosen_ans = document.getElementById("q4op4").value;
+	}
+	
+	var crct_ans = document.getElementById("q4crctans").value;
+	
+	document.getElementById("q4btn").style.display = "none";
+		var p = document.getElementById("q4response");
+		p.style.textAlign = "center";
+		
+		p.style.color = "blue"
+		p.innerHTML="Answered";
+		
+		
+
+	if(crct_ans == chosen_ans ){
+		count = count+1;
+		
+				
+	}
+	var p = document.createElement("h3");
+	p.style.textAlign = "center";
+	var butn = document.createElement("button");
+	butn.innerHTML = "Get Certificate";
+	butn.setAttribute("class","btn btn-md btn-info mx-auto d-block");
+	if(count >= 3){
+		
+		p.innerHTML = "Marks= " + count + " You passed :)";
+		p.style.color = "green"
+		document.body.appendChild(p)
+		
+		document.getElementById("certificateform").appendChild(butn);
+		
+	}else{
+		
+		p.innerHTML = "Marks= " + count + " You failed :( ";
+	
+		p.style.color = "red"
+		document.body.appendChild(p)
+	}
+	
+	
+	
+
+}	
+	
+</script>

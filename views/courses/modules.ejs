@@ -1,0 +1,147 @@
+<%- include("../partials/header") %>
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-3 mt-5" id="menu">
+			<p class="lead" >Course Outline</p>
+			<div class="list-group">
+			<% for(var i=0 ;i<foundCourse.topics.length; i++){%>	
+				<li class="list-group-item ">
+				 <div class="dropdown">
+				  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					Module <%= i+1 %>
+				  </button>
+				  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+					<a class="dropdown-item" href="#video<%=i %>"><%=foundCourse.topics[i] %></a>
+				
+				  </div>
+				</div>
+				</li>	
+			<% } %>		
+			<div class="list-group">
+				<li class="list-group-item ">
+					<form action="/<%=foundCourse._id%>/finalexam" method="POST">
+						<button class="btn btn-md btn-dark">Attend final Exam</button>
+					</form>
+						
+				</li>	
+				
+				</div>	
+				
+			
+			</div>
+		</div>
+		
+		<div class="col-md-9">
+			<section id="video0"  style="border : 2px solid black ;margin-top : 90px;margin-bottom : 250px;" >
+				<div>
+				
+				<iframe width="820" height="420" src="<%=foundCourse.videos[0] %>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+				
+			</div>
+			<a class="btn btn-sm btn-info"href="#menu">GO TO MENU</a>
+			<form method="POST" action="/<%=foundCourse._id%>/assignment/<%=0%>"
+				  style="display : inline-block">
+				<button class="btn btn-sm btn-info">
+					Assignment
+				</button>
+			</form>
+			
+			</section>
+			
+			
+			<section id="video1">
+				<div  style="border : 2px solid black;margin-bottom:250px" >
+				
+				<iframe  width="820" height="420" src="<%=foundCourse.videos[1] %>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+					<a class="btn btn-sm btn-info" href="#menu">GO TO MENU</a>
+					<form method="POST" action="/<%=foundCourse._id%>/assignment/<%= 1%>"
+						  style="display : inline-block">
+				<button class="btn btn-sm btn-info">
+					Assignment
+				</button>
+			</form>
+
+				</div>
+			</section>
+			
+			
+			
+			<div id="video2" style="border : 2px solid black;margin-bottom:250px" >
+				
+				<iframe  width="820" height="420" src="<%=foundCourse.videos[2] %>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+				<a class="btn btn-sm btn-info" href="#menu">GO TO MENU</a>
+				<form method="POST" action="/<%=foundCourse._id%>/assignment/<%= 2%>"
+					  style="display : inline-block">
+				<button class="btn btn-sm btn-info">
+					Assignment
+				</button>
+			</form>
+
+			</div>
+			
+			<div id="video3" style="border : 2px solid black;margin-bottom:250px">
+				
+				<iframe  width="820" height="420" src="<%=foundCourse.videos[3] %>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+				<a class="btn btn-sm btn-info" href="#menu">GO TO MENU</a>	
+				<form action="/<%=foundCourse._id%>/assignment/<%= 3%>" method="POST"
+					  style="display : inline-block">
+				<button class="btn btn-sm btn-info">
+					Assignment
+				</button>
+			</form>
+
+			</div>
+			
+			<div id="video4" style="border : 2px solid black;margin-bottom:250px">
+				
+				<iframe  width="820" height="420" src="<%=foundCourse.videos[4] %>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+				<a class="btn btn-sm btn-info" href="#menu">GO TO MENU</a>	
+				<form method="POST" action="/<%=foundCourse._id%>/assignment/<%= 4%>"
+					style="display : inline-block"  >
+				<button class="btn btn-sm btn-info" >
+					Assignment
+				</button>
+			</form>
+
+			</div>
+		</div>
+			
+	</div>
+</div>	
+<!-- <h1 class="text-center">
+	Welcome to <%=foundCourse.name %> Course 
+</h1>
+
+<div class="container mt-5">
+	<div style="border : 2px solid black " class="mb-5">
+	 <div class="py-5 ">
+	<% for(var i=0 ;i<foundCourse.topics.length ;i++){%>	
+		<div class="dropdown show text-center py-2 " >
+		  <a class="btn btn-secondary dropdown-toggle" href="#" role="button" 
+			 id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" 
+			 aria-expanded="false" style="width :50%" >
+		Module <%= i+1 %>
+	  		</a>
+
+		  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+			<a class="dropdown-item" href="#video"><%= foundCourse.topics[i] %></a>
+			
+		  </div>
+		</div>
+	<% } %>	
+	  </div>	 
+	</div>
+	
+	
+	<div id="video">
+		<p>
+			<%=foundCourse.topics[i] %>
+		</p>
+		<iframe width="560" height="315" src="https://www.youtube.com/embed/Y8Tko2YC5hA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>>
+
+		
+	</div>
+			
+</div>
+ -->

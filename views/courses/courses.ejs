@@ -1,0 +1,103 @@
+<%- include("../partials/header.ejs") %>
+
+
+<style type="text/css">
+	
+*,html{
+	margin: 0;
+	padding:0;
+}
+
+header{
+
+}
+.topbar{
+
+	border-bottom:1px solid black;
+font-family: Montserrat,sans-serif;
+
+}
+
+.item1 img{
+	
+
+
+}
+
+.item1 p{
+	color: #808080;
+	padding-bottom:  10px;
+
+}
+
+.item1{
+border:1px solid black;
+font-family: 'Lato',sans-serif;
+width:250px;
+height: auto;
+box-shadow: 10px 10px 5px #aaaaaa;
+padding:10px;
+margin-left: 80px;
+margin-top: 50px;
+float: left;
+text-align: center;
+cursor: pointer;
+
+}
+
+
+header h1{
+	
+	padding-left: 10px;
+
+}
+a{
+	text-decoration: none;
+	color: black;
+}
+
+</style>
+<div class="topbar">
+
+
+</div>
+
+<br><br>
+
+<div class="container">
+	<div class="jumbotron">
+		<blockquote>
+			<h2>
+				<i class="fas fa-book-reader"></i>
+
+				<em>"COME AND FALL IN LOVE WITH LEARNING"</em>
+			</h2>
+		</blockquote>
+		
+	</div>
+	
+</div>
+<%for(var i=0;i<courses.length;i++){ %>
+	
+	<div class="container item1">
+	<a href="<%=courses[i]._id%>/course %>">
+	<img src="<%=courses[i].image%>"
+	width="200px" height="200px" 
+	>
+
+	<h2><%=courses[i].name %></h2>
+
+	<p id="provider"><%=courses[i].course_provider%></p>
+
+	<h4><%=courses[i].Instructor_name  %></h4>
+	<h3 id="rate"><%= courses[i].price %></h3>
+		
+	</a>
+</div>
+
+	
+<%}%>	
+
+
+
+

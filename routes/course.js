@@ -13,6 +13,7 @@ router.get("/courses",function(req,res){
 			res.redirect("back");
 		}
 		else{
+			console.log(foundCourses)
 			res.render("./courses/courses",{courses : foundCourses})
 		}
 	})
